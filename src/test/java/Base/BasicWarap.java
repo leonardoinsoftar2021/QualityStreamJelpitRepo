@@ -7,6 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BasicWarap {
 	
@@ -23,7 +25,9 @@ public class BasicWarap {
 			public WebDriver chromeDriverConnection() {
 				//Chrome
 				System.setProperty("webdriver.chrome.driver", "./src/test/resources/DriverChrome/chromedriver");
-				driver = new ChromeDriver();
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--disable-notifications");
+				driver = new ChromeDriver(options);
 				//Mozilla
 				//System.setProperty("webdriver.gecko.driver","./src/test/resources/DriverMozillaFirefox/geckodriver");
 				//driver = new FirefoxDriver();
